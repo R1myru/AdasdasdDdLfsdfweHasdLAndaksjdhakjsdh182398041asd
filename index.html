@@ -1,68 +1,226 @@
 <!DOCTYPE html>
-<html >
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/logo5.png" type="image/x-icon">
-  <meta name="description" content="Сайт от R1myru для R1myru">
-  <title>R1myru</title>
-  <link rel="stylesheet" href="https://r.mobirisesite.com/376546/assets/bootstrap/css/bootstrap.min.css?rnd=1712169005823">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/376546/assets/bootstrap/css/bootstrap-grid.min.css?rnd=1712169005823">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/376546/assets/bootstrap/css/bootstrap-reboot.min.css?rnd=1712169005823">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/376546/assets/parallax/jarallax.css?rnd=1712169005823">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/376546/assets/socicon/css/styles.css?rnd=1712169005823">
-  <link rel="stylesheet" href="https://r.mobirisesite.com/376546/assets/theme/css/style.css?rnd=1712169005823">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap"></noscript>
-  <link rel="stylesheet" href="https://r.mobirisesite.com/376546/assets/css/mbr-additional.css?rnd=1712169005823" type="text/css">
-  
-  
-  
-  
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assets/images/logo5.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R1myru</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #cce7ff; /* Pastel blue background */
+        }
+        .card, .console, .image-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        .card {
+            display: block;
+        }
+        .console, .image-container {
+            display: none;
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 0%;
+            margin-bottom: 15px;
+        }
+        .card h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Equal spacing between social links */
+        }
+        .social-links a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #555;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #0077b5; /* Change to respective brand color if needed */
+        }
+        .warning-icon {
+            color: red;
+            margin-right: 10px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+        }
+        .warning-icon:hover::after {
+            content: "В данный момент основной аккаунт не активен";
+            position: absolute;
+            background: #fff;
+            color: #000;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            top: -30px; /* Adjusted to show above other elements */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            max-width: 90vw; /* Prevents text from overflowing screen width */
+            overflow-wrap: break-word;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .toggle {
+            margin-left: 10px;
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #0077b5;
+        }
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+        .console-output {
+            color: red;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .console input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        let keySequence = [];
+        const keyCombination = ["ArrowRight", "ArrowRight", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowLeft"];
+
+        function toggleTelegramLink() {
+            const telegramLink = document.getElementById('telegram-link');
+            const isActive = document.getElementById('telegram-toggle').checked;
+            telegramLink.href = isActive ? 'https://t.me/R2myru' : 'https://t.me/R1myru';
+        }
+
+        function handleKeyPress(event) {
+            keySequence.push(event.key);
+            if (keySequence.length > keyCombination.length) {
+                keySequence.shift();
+            }
+
+            if (JSON.stringify(keySequence) === JSON.stringify(keyCombination)) {
+                const card = document.querySelector('.card');
+                const consoleElement = document.querySelector('.console');
+                card.style.opacity = 0;
+                setTimeout(() => {
+                    card.style.display = 'none';
+                    consoleElement.style.display = 'block';
+                    consoleElement.style.opacity = 1;
+                }, 500);
+            }
+        }
+
+        function handleConsoleInput(event) {
+            const output = document.getElementById('console-output');
+            if (event.key === 'Enter') {
+                const command = event.target.value.trim();
+                if (command === 'MfKB') {
+                    const consoleElement = document.querySelector('.console');
+                    const imageContainer = document.querySelector('.image-container');
+                    consoleElement.style.opacity = 0;
+                    setTimeout(() => {
+                        consoleElement.style.display = 'none';
+                        imageContainer.style.display = 'block';
+                        imageContainer.style.opacity = 1;
+                    }, 500);
+                } else {
+                    output.textContent = 'В доступе отказано';
+                }
+            }
+        }
+
+        document.addEventListener('keydown', handleKeyPress);
+    </script>
 </head>
 <body>
-  
-  <section data-bs-version="5.1" class="header09 startm5 cid-u8UkMkBW1c mbr-fullscreen mbr-parallax-background" id="header09-0">	
-    
-	<div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(35, 35, 35);"></div>
-	
-	<div class="container-fluid">
-		<div class="row">
-			<div class="content-wrap col-12 col-md-8">
-				<h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
-					<strong>R1myru</strong></h1>
-				
-				<p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7"><strong></strong></p>
-				<div class="mbr-section-btn"><a class="btn btn-info display-7" href="https://www.instagram.com/R1myru"><span class="socicon socicon-instagram mbr-iconfont mbr-iconfont-btn"></span>Instagram</a></div>
-				<div class="mbr-section-btn"><a class="btn btn-info display-7" href="https://t.me/R1myru"><span class="socicon socicon-telegram mbr-iconfont mbr-iconfont-btn"></span>Telegram</a></div>
-				<div class="mbr-section-btn"><a class="btn btn-info display-7" href="https://steamcommunity.com/id/R1myru"><span class="socicon socicon-steam mbr-iconfont mbr-iconfont-btn"></span>Steam</a></div>
-				    <div class="mbr-section-btn">
-        <a id="myButton" class="btn btn-info display-7">
-            <span class="socicon socicon-discord mbr-iconfont mbr-iconfont-btn"></span>Discord
-        </a>
+    <div class="card">
+        <img src="Logo.jpg" alt="Ваше фото">
+        <h1>R1myru</h1>
+        <p>Ignat, maloletniy debil</p>
+        <div class="social-links">
+            <div>
+                <span class="warning-icon" title="В данный момент основной аккаунт не активен">&#9888;</span>
+                <a id="telegram-link" href="https://t.me/R1myru" target="_blank">Telegram</a>
+                <label class="toggle">
+                    <input type="checkbox" id="telegram-toggle" onchange="toggleTelegramLink()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <a href="https://steamcommunity.com/id/R1myru" target="_blank">Steam</a>
+            <a href="https://www.instagram.com/R1myru" target="_blank">Instagram</a>
+            <a href="https://discord.gg/ejDfkH3K9M" target="_blank">Discord</a>
+        </div>
     </div>
 
-    <script>
-        document.getElementById('myButton').addEventListener('click', function(event) {
-            event.preventDefault(); // Предотвратить открытие ссылки
-            this.textContent = 'r1myru'; // Изменить текст кнопки
-        });
-    </script>
-			</div>
-		</div>
-	</div>
-</section>
+    <div class="console">
+        <input type="text" placeholder="Введите команду..." onkeydown="handleConsoleInput(event)">
+        <div id="console-output" class="console-output"></div>
+    </div>
 
-
-  <script src="assets/web/assets/jquery/jquery.min.js"></script>
-  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/parallax/jarallax.js"></script>
-  <script src="assets/smoothscroll/smooth-scroll.js"></script>
-  <script src="assets/ytplayer/index.js"></script>
-  <script src="assets/theme/js/script.js"></script>
-  
-  
-  
+    <div class="image-container">
+        <img src="https://gachi.gay/gGiJh" alt="Загруженное изображение">
+    </div>
 </body>
 </html>
