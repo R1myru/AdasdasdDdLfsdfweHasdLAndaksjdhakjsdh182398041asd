@@ -15,8 +15,10 @@
             align-items: center;
             height: 100vh;
             background-color: #cce7ff; /* Pastel blue background */
+            transition: background-color 1s ease;
+            overflow: hidden;
         }
-        .card, .console, .image-container {
+        .card, .console, .image-container, .qr-container {
             background: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -27,7 +29,7 @@
         .card {
             display: block;
         }
-        .console, .image-container {
+        .console, .image-container, .qr-container {
             display: none;
         }
         .card img {
@@ -85,82 +87,53 @@
             overflow-wrap: break-word;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        .toggle {
-            margin-left: 10px;
-            position: relative;
-            display: inline-block;
-            width: 34px;
-            height: 20px;
+        .qr-container {
+            display: none;
+            text-align: center;
+            animation: glitch 1.5s infinite;
         }
-        .toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
+        .qr-container img {
+            max-width: 150px;
+            margin: 0 auto;
         }
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 20px;
-        }
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 14px;
-            width: 14px;
-            left: 3px;
-            bottom: 3px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-        input:checked + .slider {
-            background-color: #0077b5;
-        }
-        input:checked + .slider:before {
-            transform: translateX(14px);
-        }
-        .console-output {
-            color: red;
-            font-size: 16px;
+        .qr-container p {
             margin-top: 10px;
-        }
-        .console input {
-            width: 100%;
-            padding: 10px;
             font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
+            color: white;
         }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, -2px);
+            }
+            40% {
+                transform: translate(2px, 2px);
+            }
+            60% {
+                transform: translate(-1px, 1px);
+            }
+            80% {
+                transform: translate(1px, -1px);
+            }
+            100% {
+                transform: translate(0);
+            }
         }
     </style>
     <script>
         let keySequence = [];
         const keyCombination = ["ArrowRight", "ArrowRight", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowLeft"];
-
-        function toggleTelegramLink() {
-            const telegramLink = document.getElementById('telegram-link');
-            const isActive = document.getElementById('telegram-toggle').checked;
-            telegramLink.href = isActive ? 'https://t.me/R2myru' : 'https://t.me/R1myru';
-        }
+        const blockCombination = ["b", "l", "o", "c", "k"];
 
         function handleKeyPress(event) {
             keySequence.push(event.key);
-            if (keySequence.length > keyCombination.length) {
+            if (keySequence.length > Math.max(keyCombination.length, blockCombination.length)) {
                 keySequence.shift();
             }
 
-            if (JSON.stringify(keySequence) === JSON.stringify(keyCombination)) {
+            if (JSON.stringify(keySequence.slice(-keyCombination.length)) === JSON.stringify(keyCombination)) {
                 const card = document.querySelector('.card');
                 const consoleElement = document.querySelector('.console');
                 card.style.opacity = 0;
@@ -170,24 +143,18 @@
                     consoleElement.style.opacity = 1;
                 }, 500);
             }
-        }
 
-        function handleConsoleInput(event) {
-            const output = document.getElementById('console-output');
-            if (event.key === 'Enter') {
-                const command = event.target.value.trim();
-                if (command === 'MfKB') {
-                    const consoleElement = document.querySelector('.console');
-                    const imageContainer = document.querySelector('.image-container');
-                    consoleElement.style.opacity = 0;
-                    setTimeout(() => {
-                        consoleElement.style.display = 'none';
-                        imageContainer.style.display = 'block';
-                        imageContainer.style.opacity = 1;
-                    }, 500);
-                } else {
-                    output.textContent = 'В доступе отказано';
-                }
+            if (JSON.stringify(keySequence.slice(-blockCombination.length)) === JSON.stringify(blockCombination)) {
+                document.body.style.backgroundColor = "#000";
+                const card = document.querySelector('.card');
+                const qrContainer = document.querySelector('.qr-container');
+
+                card.style.opacity = 0;
+                setTimeout(() => {
+                    card.style.display = 'none';
+                    qrContainer.style.display = 'block';
+                    qrContainer.style.opacity = 1;
+                }, 500);
             }
         }
 
@@ -214,13 +181,8 @@
         </div>
     </div>
 
-    <div class="console">
-        <input type="text" placeholder="Введите команду..." onkeydown="handleConsoleInput(event)">
-        <div id="console-output" class="console-output"></div>
-    </div>
-
-    <div class="image-container">
-        <img src="https://gachi.gay/gGiJh" alt="Загруженное изображение">
+    <div class="qr-container">
+        <img src="assets/qr.png" alt="Signal">
     </div>
 </body>
 </html>
