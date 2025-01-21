@@ -1,0 +1,110 @@
+/* Общие стили */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: #fff;
+  overflow: hidden; /* Убираем прокрутку */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 100vh; /* Ограничиваем высоту контейнера */
+  width: 100vw; /* Ограничиваем ширину контейнера */
+  box-sizing: border-box; /* Для учета отступов */
+  padding: 50px 0;
+}
+
+.logo, .footer {
+  width: auto;
+  max-width: 50%; /* Уменьшаем для телефонов */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column; /* Вертикальный макет по умолчанию */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.card, textarea {
+  width: calc(100% - 20px); /* Отступы от краев экрана */
+  max-width: 400px;
+  height: auto; /* Адаптивная высота */
+  aspect-ratio: 1 / 1; /* Сохраняем соотношение сторон */
+  border-radius: 30px;
+  padding: 20px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+textarea {
+  background-color: #2e2e2e;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  text-align: left;
+}
+
+.card {
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px;
+  text-align: left;
+}
+
+#input-text {
+  text-transform: uppercase; /* Преобразование текста в капс */
+}
+
+/* Для ПК */
+@media (min-width: 768px) {
+  .cards {
+    flex-direction: row;
+    gap: 20px; /* Увеличиваем расстояние между карточками */
+  }
+
+  textarea, .card {
+    width: 400px;
+    max-height: 340px;
+  }
+
+  .logo, .footer {
+    max-width: 20%; /* Для больших экранов */
+  }
+}
+
+/* Для телефонов */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    gap: 10px; /* Сокращаем расстояние между карточками */
+  }
+
+  .logo, .footer {
+    max-width: 50%; /* Центрируем логотип и футер */
+  }
+
+  textarea, .card {
+    width: calc(100% - 20px); /* Отступы от краев экрана */
+    height: auto;
+  }
+}
