@@ -48,28 +48,28 @@ const dictionary = {
 
 // Словарь готовых переводов слов
 const wordDictionary = {
-  huskar: 'Ниская',
-  tiny: 'Тиию',
-  tango: 'Табло',
-  'aegis of the immortal': 'Аппекс Оп Ип Иттонтайм',
-  io: 'айкью',
-  'shadow demon': 'Снадом Демон',
-  'anti mage': 'Арти Маде',
-  bane: 'Вадя',
-  lina: 'Луна',
-  luna: 'Лина',
-  'chaos knight': 'Снаос Кииснт',
-  dawnbreaker: 'Дамнибреяакея',
-  'dragon knight': 'Дракон Кингсонд',
-  lifestealer: 'ЛайфСталин',
-  mars: 'Маяс',
-  'primal beast': 'Ряимаг Веаст',
-  pudge: 'Ритце',
-  slardar: 'Русалка',
-  'spirit breaker': 'Ледяной Бык',
-  'wraith king': 'Мьяитн Кинг',
-  shift: 'Tab',
-  ravage: 'Япаде',
+  huskar: 'НИСКАЯ',
+  tiny: 'ТИИЮ',
+  tango: 'ТАБЛО',
+  'aegis of the immortal': 'АППЕКС ОП ИП ИТТОНТАЙМ',
+  io: 'АЙКЬЮ',
+  'shadow demon': 'СНАДОМ ДЕМОН',
+  'anti mage': 'АРТИ МАДЕ',
+  bane: 'ВАДЯ',
+  lina: 'ЛУНА',
+  luna: 'ЛИНА',
+  'chaos knight': 'СНАОС КИИСНТ',
+  dawnbreaker: 'ДАМНИБРЕЯАКЕЯ',
+  'dragon knight': 'ДРАКОН КИНГСОНД',
+  lifestealer: 'ЛАЙФСТАЛИН',
+  mars: 'МАЯС',
+  'primal beast': 'РЯИМАГ ВЕАСТ',
+  pudge: 'РИТЦЕ',
+  slardar: 'РУСАЛКА',
+  'spirit breaker': 'ЛЕДЯНОЙ БЫК',
+  'wraith king': 'МЬЯИТН КИНГ',
+  shift: 'TAB',
+  ravage: 'ЯПАДЕ',
   help: 'НЕГР'
 };
 
@@ -86,7 +86,7 @@ function transliterateText(text) {
 
     // Проверка на запрещённые слова
     if (bannedWordsSet.has(cleanedWord)) {
-      const fillers = ['эээ', 'это самое', 'короче говоря', 'ну вы поняли'];
+      const fillers = ['ЭЭЭ', 'ЭТО САМОЕ', 'КОРОЧЕ ГОВОРЯ', 'НУ ВЫ ПОНЯЛИ'];
       return fillers[Math.floor(Math.random() * fillers.length)];
     }
 
