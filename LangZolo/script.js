@@ -52,8 +52,6 @@ const wordDictionary = {
   tiny: 'ТИИЮ',
   tango: 'ТАБЛО',
   aegis: 'АППЕКС',
-  of: 'ОП',
-  the: 'ИП',
   immortal: 'ИТТОНТАЙМ',
   io: 'АЙКЬЮ',
   shadow: 'СНАДОМ',
@@ -81,7 +79,6 @@ const wordDictionary = {
   shift: 'TAB',
   ravage: 'ЯПАДЕ',
   help: 'НЕГР',
-  i: 'ай',
   like: 'лайк',
   big: 'тик',
   dick: 'ток'
