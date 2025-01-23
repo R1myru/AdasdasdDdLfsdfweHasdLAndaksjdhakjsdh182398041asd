@@ -48,30 +48,43 @@ const dictionary = {
 
 // Словарь готовых переводов слов
 const wordDictionary = {
-  'huskar': 'НИСКАЯ',
-  'tiny': 'ТИИЮ',
-  'tango': 'ТАБЛО',
-  'aegis of the immortal': 'АППЕКС ОП ИП ИТТОНТАЙМ',
-  'io': 'АЙКЬЮ',
-  'shadow demon': 'СНАДОМ ДЕМОН',
-  'anti mage': 'АРТИ МАДЕ',
-  'bane': 'ВАДЯ',
-  'lina': 'ЛУНА',
-  'luna': 'ЛИНА',
-  'chaos knight': 'СНАОС КИИСНТ',
-  'dawnbreaker': 'ДАМНИБРЕЯАКЕЯ',
-  'dragon knight': 'ДРАКОН КИНГСОНД',
-  'lifestealer': 'ЛАЙФСТАЛИН',
-  'mars': 'МАЯС',
-  'primal beast': 'РЯИМАГ ВЕАСТ',
-  'pudge': 'РИТЦЕ',
-  'slardar': 'РУСАЛКА',
-  'spirit breaker': 'ЛЕДЯНОЙ БЫК',
-  'wraith king': 'МЬЯИТН КИНГ',
-  'shift': 'TAB',
-  'ravage': 'ЯПАДЕ',
-  'help': 'НЕГР'
-  'i like big dick': 'ай лайк тик ток'
+  huskar: 'НИСКАЯ',
+  tiny: 'ТИИЮ',
+  tango: 'ТАБЛО',
+  aegis: 'АППЕКС' 
+  of: 'ОП'
+  the: 'ИП'
+  immortal: 'ИТТОНТАЙМ',
+  io: 'АЙКЬЮ',
+  shadow: 'СНАДОМ'
+  demon: 'ДЕМОН',
+  anti: 'АРТИ'
+  mage: 'МАДЕ',
+  bane: 'ВАДЯ',
+  lina: 'ЛУНА',
+  luna: 'ЛИНА',
+  chaos: 'СНАОС'
+  knight: 'КИИСНТ',
+  dawnbreaker: 'ДАМНИБРЕЯАКЕЯ',
+  dragon: 'ДРАКОН'
+  knight: 'КИНГСОНД',
+  lifestealer: 'ЛАЙФСТАЛИН',
+  mars: 'МАЯС',
+  primal: 'РЯИМАГ'
+  beast: 'ВЕАСТ',
+  pudge: 'РИТЦЕ',
+  slardar: 'РУСАЛКА',
+  spirit: 'ЛЕДЯНОЙ'
+  breaker: 'БЫК',
+  wraith: 'МЬЯИТН'
+  king: 'КИНГ',
+  shift: 'TAB',
+  ravage: 'ЯПАДЕ',
+  help: 'НЕГР'
+  i: 'ай'
+  like: 'лайк'
+  big: 'тик'
+  dick: 'ток'
 };
 
 function transliterateText(text) {
