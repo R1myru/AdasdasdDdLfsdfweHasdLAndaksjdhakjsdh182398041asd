@@ -51,39 +51,39 @@ const wordDictionary = {
   huskar: 'НИСКАЯ',
   tiny: 'ТИИЮ',
   tango: 'ТАБЛО',
-  aegis: 'АППЕКС' 
-  of: 'ОП'
-  the: 'ИП'
+  aegis: 'АППЕКС',
+  of: 'ОП',
+  the: 'ИП',
   immortal: 'ИТТОНТАЙМ',
   io: 'АЙКЬЮ',
-  shadow: 'СНАДОМ'
+  shadow: 'СНАДОМ',
   demon: 'ДЕМОН',
-  anti: 'АРТИ'
+  anti: 'АРТИ',
   mage: 'МАДЕ',
   bane: 'ВАДЯ',
   lina: 'ЛУНА',
   luna: 'ЛИНА',
-  chaos: 'СНАОС'
+  chaos: 'СНАОС',
   knight: 'КИИСНТ',
   dawnbreaker: 'ДАМНИБРЕЯАКЕЯ',
-  dragon: 'ДРАКОН'
+  dragon: 'ДРАКОН',
   knight: 'КИНГСОНД',
   lifestealer: 'ЛАЙФСТАЛИН',
   mars: 'МАЯС',
-  primal: 'РЯИМАГ'
+  primal: 'РЯИМАГ',
   beast: 'ВЕАСТ',
   pudge: 'РИТЦЕ',
   slardar: 'РУСАЛКА',
-  spirit: 'ЛЕДЯНОЙ'
+  spirit: 'ЛЕДЯНОЙ',
   breaker: 'БЫК',
-  wraith: 'МЬЯИТН'
+  wraith: 'МЬЯИТН',
   king: 'КИНГ',
   shift: 'TAB',
   ravage: 'ЯПАДЕ',
-  help: 'НЕГР'
-  i: 'ай'
-  like: 'лайк'
-  big: 'тик'
+  help: 'НЕГР',
+  i: 'ай',
+  like: 'лайк',
+  big: 'тик',
   dick: 'ток'
 };
 
