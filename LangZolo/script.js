@@ -79,9 +79,9 @@ const wordDictionary = {
   shift: 'TAB',
   ravage: 'ЯПАДЕ',
   help: 'НЕГР',
-  like: 'лайк',
-  big: 'тик',
-  dick: 'ток'
+  like: 'ЛАЙК',
+  big: 'ТИК',
+  dick: 'ТОК'
 };
 
 function transliterateText(text) {
