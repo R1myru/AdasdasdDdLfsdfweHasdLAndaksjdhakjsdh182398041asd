@@ -48,30 +48,30 @@ const dictionary = {
 
 // Словарь готовых переводов слов
 const wordDictionary = {
-  huskar: 'НИСКАЯ',
-  tiny: 'ТИИЮ',
-  tango: 'ТАБЛО',
+  'huskar': 'НИСКАЯ',
+  'tiny': 'ТИИЮ',
+  'tango': 'ТАБЛО',
   'aegis of the immortal': 'АППЕКС ОП ИП ИТТОНТАЙМ',
-  io: 'АЙКЬЮ',
+  'io': 'АЙКЬЮ',
   'shadow demon': 'СНАДОМ ДЕМОН',
   'anti mage': 'АРТИ МАДЕ',
-  bane: 'ВАДЯ',
-  lina: 'ЛУНА',
-  luna: 'ЛИНА',
+  'bane': 'ВАДЯ',
+  'lina': 'ЛУНА',
+  'luna': 'ЛИНА',
   'chaos knight': 'СНАОС КИИСНТ',
-  dawnbreaker: 'ДАМНИБРЕЯАКЕЯ',
+  'dawnbreaker': 'ДАМНИБРЕЯАКЕЯ',
   'dragon knight': 'ДРАКОН КИНГСОНД',
-  lifestealer: 'ЛАЙФСТАЛИН',
-  mars: 'МАЯС',
+  'lifestealer': 'ЛАЙФСТАЛИН',
+  'mars': 'МАЯС',
   'primal beast': 'РЯИМАГ ВЕАСТ',
-  pudge: 'РИТЦЕ',
-  slardar: 'РУСАЛКА',
+  'pudge': 'РИТЦЕ',
+  'slardar': 'РУСАЛКА',
   'spirit breaker': 'ЛЕДЯНОЙ БЫК',
   'wraith king': 'МЬЯИТН КИНГ',
-  shift: 'TAB',
-  ravage: 'ЯПАДЕ',
-  help: 'НЕГР'
-  i like big dick: 'ай лайк тик ток'
+  'shift': 'TAB',
+  'ravage': 'ЯПАДЕ',
+  'help': 'НЕГР'
+  'i like big dick': 'ай лайк тик ток'
 };
 
 function transliterateText(text) {
